@@ -1,0 +1,231 @@
+/* 1. Configuração geral: seletor universal e Box Model. */
+* {
+    box-sizing: border-box;
+}
+
+/* Fonte e cor são herdadas pelos descendentes. */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #222222;
+    background-color: #f5f5f5;
+}
+
+/* 2. Cabeçalho e navegação. */
+header {
+    background-color: #003366;
+    color: white;
+    padding: 24px;
+}
+header h1 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+nav {
+    background-color: #eeeeee;
+    padding: 12px;
+}
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+nav li {
+    margin: 0;
+}
+/* Seletor descendente. */
+nav a {
+    color: #003366;
+    text-decoration: none;
+    padding: 6px;
+    display: inline-block;
+}
+nav a:hover,
+nav a[aria-current="page"] {
+    background-color: #003366;
+    color: white;
+}
+a {
+    color: #003366;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #996400;
+    outline-offset: 3px;
+}
+.pular-conteudo {
+    display: block;
+    padding: 8px 24px;
+    background-color: white;
+}
+
+/* 3. Conteúdo: cascata e seletor por ID. */
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+h2 {
+    margin-bottom: 12px;
+}
+/* Mesmo seletor e especificidade: a regra posterior prevalece. */
+h2 {
+    margin-bottom: 24px;
+}
+#dashboard h2 {
+    color: #003366;
+}
+
+/* 4. Cartões reutilizados no dashboard e nas quatro listagens. */
+.card {
+    background-color: white;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    flex: 1 1 250px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    margin-bottom: 0;
+    border-radius: 6px;
+}
+.card h3 {
+    margin-top: 0;
+}
+/* Especificidade (0,0,2). */
+article p {
+    color: #444444;
+}
+/* Especificidade (0,1,1): esta regra prevalece. */
+.card p {
+    color: #222222;
+}
+.indicador {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+.aviso {
+    background-color: #fff8dc;
+    border: 1px solid #e5d59b;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+.aviso h3 {
+    margin-top: 0;
+}
+
+/* 5. Formulários e agrupamento de seletores. */
+form {
+    background-color: white;
+    padding: 24px;
+    border: 1px solid #dddddd;
+}
+fieldset {
+    min-width: 0;
+    border: 1px solid #cccccc;
+    margin: 0 0 20px;
+    padding: 20px;
+}
+legend {
+    font-weight: bold;
+    color: #003366;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    font: inherit;
+    color: inherit;
+    background-color: white;
+}
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+fieldset small {
+    display: block;
+}
+button {
+    font: inherit;
+    padding: 10px 16px;
+    border: 1px solid #003366;
+    background-color: #003366;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+}
+.botao-secundario {
+    background-color: white;
+    color: #003366;
+}
+.link-acao {
+    display: inline-block;
+    background-color: #003366;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+.link-acao:hover,
+button:hover {
+    text-decoration: underline;
+}
+
+/* 6. Rodapé comum. */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+footer p {
+    margin: 0;
+}
+
+/* 7. Evolução da Aula 05: layout unidimensional com Flexbox. */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.cabecalho > div {
+    flex: 0 1 700px;
+    min-width: 0;
+}
+.cabecalho h1 {
+    overflow-wrap: anywhere;
+}
+.cabecalho p {
+    margin-bottom: 0;
+}
+.cards,
+.lista-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
