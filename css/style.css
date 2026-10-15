@@ -26,6 +26,7 @@ nav {
     background-color: #eeeeee;
     padding: 12px;
 }
+/* Flexbox: o menu distribui links em um eixo, com quebra quando necessário. */
 nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +90,6 @@ h2 {
     background-color: white;
     border: 1px solid #dddddd;
     padding: 20px;
-    flex: 1 1 250px;
     min-width: 0;
     overflow-wrap: anywhere;
     margin-bottom: 0;
@@ -215,13 +215,7 @@ footer p {
 .cabecalho p {
     margin-bottom: 0;
 }
-.cards,
-.lista-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
-}
+/* Flexbox: botões e link seguem uma sequência no eixo horizontal. */
 .acoes {
     display: flex;
     flex-wrap: wrap;
@@ -229,3 +223,43 @@ footer p {
     align-items: center;
     gap: 12px;
 }
+
+
+/* 8. Aula 06: Grid organiza simultaneamente linhas e colunas.
+   Grid Container: div.dashboard-grid. Grid Items: seus article.card.
+   repeat(4, 1fr) repete quatro trilhas de uma fração do espaço disponível.
+   As trilhas têm a mesma largura; o card em destaque ocupa duas delas.
+   O conteúdo pode impor mínimos às trilhas; min-width: 0 e quebra de
+   palavras nos cards permitem acomodar textos nas colunas. */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+/* span 2 ocupa duas colunas a partir da posição automática do item.
+   Com quatro cards e quatro colunas, o destaque consome duas posições:
+   três cards ficam na primeira linha e o quarto passa para a segunda. */
+.card-destaque {
+    grid-column: span 2;
+}
+/* Mesma classe nas quatro listagens: três colunas iguais. */
+.lista-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+/* Experimentos temporários (alterar no DevTools, depois restaurar):
+   1. Desative grid-column no destaque ao comparar apenas as colunas.
+      repeat(2, 1fr): quatro cards em duas linhas de dois itens.
+      repeat(4, 1fr): quatro cards na mesma linha, sem destaque.
+   2. 2fr 1fr: primeira coluna recebe duas partes e a segunda uma parte
+      do espaço livre. 1fr 1fr divide esse espaço igualmente.
+   3. gap: 32px aumenta as distâncias entre linhas e colunas de 16 a 32px.
+   4. row-gap: 24px; column-gap: 12px separa os dois espaçamentos.
+   5. grid-column: 1 / 3 fixa o início na linha 1 e o fim na linha 3.
+      span 2 define a extensão sem fixar a linha inicial. No primeiro
+      card, ambos produzem a mesma posição; em outro item podem diferir.
+   Configuração final: quatro colunas, gap 16px e destaque span 2.
+*/
