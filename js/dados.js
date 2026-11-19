@@ -1,0 +1,4 @@
+const alunosIniciais=[{id:1,nome:"Ana Souza",email:"ana@exemplo.com",curso:"ADS",status:"ativo"},{id:2,nome:"Carlos Silva",email:"carlos@exemplo.com",curso:"CC",status:"inativo"},{id:3,nome:"Mariany Santos",email:"mariany@exemplo.com",curso:"ES",status:"ativo"}];
+const cursosIniciais=[{id:1,sigla:"ADS",nome:"Análise e Desenvolvimento de Sistemas",ativo:true},{id:2,sigla:"CC",nome:"Ciência da Computação",ativo:true},{id:3,sigla:"ES",nome:"Engenharia de Software",ativo:false}];
+const matriculasIniciais=[{id:1,numero:"2026001",aluno:"Ana Souza",curso:"ADS",status:"ativa"},{id:2,numero:"2026002",aluno:"Carlos Silva",curso:"CC",status:"trancada"},{id:3,numero:"2026003",aluno:"Mariany Santos",curso:"ES",status:"ativa"}];
+const usuariosIniciais=[{id:1,nome:"Administrador",perfil:"administrador",status:"ativo"},{id:2,nome:"Secretaria",perfil:"secretaria",status:"ativo"},{id:3,nome:"Consulta",perfil:"consulta",status:"inativo"}];
